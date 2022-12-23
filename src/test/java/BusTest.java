@@ -52,4 +52,32 @@ public class BusTest {
         bus.run();
         Assertions.assertTrue(bus.getStatus().equals(RUNNING));
     }
+
+    @DisplayName("버스에 탑승하면 탑승객만큼 탑승자 수가 증가합니다.")
+    @Test
+    void ifRide() {
+        Bus bus = new Bus();
+        bus.ride(5);
+        Assertions.assertEquals(bus.getPassenger(), 5);
+    }
+
+    @DisplayName("버스 탑승객이 30명을 넘을 경우 탑승객의 변화가 발생하지 않습니다.")
+    @Test
+    void ifPassengerMoreThan30() {
+        Bus bus = new Bus();
+        bus.ride(25);
+        Assertions.assertEquals(bus.getPassenger(), 25);
+        bus.ride(6);
+        Assertions.assertEquals(bus.getPassenger(), 25);
+    }
+
+    @DisplayName("차고지행인 버스에는 탑승할 수 없습니다.")
+    @Test
+    void ifBusStatusIsRest() {
+        Bus bus = new Bus();
+        bus.setStatus(REST);
+
+        bus.ride(25);
+        Assertions.assertEquals(bus.getPassenger(), 0);
+    }
 }

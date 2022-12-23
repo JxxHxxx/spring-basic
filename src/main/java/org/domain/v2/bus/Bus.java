@@ -2,6 +2,8 @@ package org.domain.v2.bus;
 
 import org.domain.v2.Drivable;
 import org.domain.v2.Vehicle;
+import org.domain.v2.valid.CapacityValidator;
+import org.domain.v2.valid.Validator;
 
 import static org.domain.v2.bus.BusStatus.RUNNING;
 
@@ -9,6 +11,8 @@ public class Bus extends Vehicle<BusStatus> implements Drivable<Integer> {
 
     private static Long sequence = 0L;
     public static final Integer maxPassenger = 30;
+
+    private static final Validator validator = CapacityValidator.getInstance();
 
     public Bus() {
         super();
@@ -24,14 +28,12 @@ public class Bus extends Vehicle<BusStatus> implements Drivable<Integer> {
             System.out.println("MESSAGE : [운행중인 버스가 아닙니다.]");
             return;
         }
+        this.passenger += passenger;
 
-        int tmpPassenger = this.passenger + passenger;
-        if (tmpPassenger >= maxPassenger) {
+        if (validator.execute(this, maxPassenger)) {
             System.out.println("MESSAGE : [최대 승객 수를 초과했습니다.]");
-            return;
+            this.passenger -= passenger;
         }
-        this.passenger = tmpPassenger;
-
     }
 
     private boolean nowStatus(BusStatus status) {

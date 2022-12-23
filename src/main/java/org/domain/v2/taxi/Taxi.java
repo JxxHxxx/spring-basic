@@ -57,7 +57,6 @@ public class Taxi extends Vehicle<TaxiStatus> implements Drivable<Member>{
         }
         Integer charge = calculateCharge();
         this.wallet += charge;
-        System.out.println("MESSAGE : [목적지 " + this.destination + "에 도착하였습니다.]");
         System.out.println("MESSAGE : [요금은 " + charge + "원 입니다.]");
 
         if (this.getFuel() < 10) {

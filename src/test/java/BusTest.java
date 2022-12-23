@@ -107,5 +107,32 @@ public class BusTest {
 
         Assertions.assertEquals(20, bus.getGasAmount());
     }
+    @DisplayName("속도는 0 이상의 값을 가질 수 있습니다.")
+    @Test
+    void ifSpeedOverZero() {
+        Bus bus = new Bus();
+        bus.setSpeed(0);
+
+        Assertions.assertEquals(0, bus.getSpeed());
+    }
+
+    @DisplayName("버스가 운행중이지 않다면 속도값은 변경되지 않습니다.")
+    @Test
+    void ifNotRunning() {
+        Bus bus = new Bus();
+        bus.setStatus(REST);
+        bus.setSpeed(100);
+
+        Assertions.assertEquals(0, bus.getSpeed());
+    }
+
+    @DisplayName("속도는 음수 값을 가질 수 없습니다.")
+    @Test
+    void ifSpendLessThanZero() {
+        Bus bus = new Bus();
+        bus.setSpeed(-10);
+
+        Assertions.assertEquals(0, bus.getSpeed());
+    }
 }
 

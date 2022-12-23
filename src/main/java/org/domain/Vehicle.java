@@ -40,4 +40,17 @@ public abstract class Vehicle {
         }
         this.gasAmount = tmpGasAmount;
     }
+    public void setSpeed(Integer speed) {
+        if (speedValidator()) {
+            return;
+        };
+
+        int tmpSpeed = this.speed + speed;
+        if (tmpSpeed < 0) {
+            System.out.println("MESSAGE : [속도는 0 이상의 값을 가집니다.]");
+            return;
+        }
+        this.speed = tmpSpeed;
+    }
+    public abstract boolean speedValidator();
 }

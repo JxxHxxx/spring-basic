@@ -8,7 +8,7 @@ import static org.domain.v2.bus.BusStatus.RUNNING;
 public class Bus extends Vehicle<BusStatus> implements Drivable<Integer> {
 
     private static Long sequence = 0L;
-    private static final Integer maxPassenger = 30;
+    public static final Integer maxPassenger = 30;
 
     public Bus() {
         super();

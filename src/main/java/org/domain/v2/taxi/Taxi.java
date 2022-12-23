@@ -69,7 +69,7 @@ public class Taxi extends Vehicle<TaxiStatus> implements Drivable<Member>{
         }
         else {
             int calDistance = this.distance - Taxi.basicDistance;
-            return calDistance * ratePerDistance;
+            return calDistance * ratePerDistance + basicCharge;
         }
     }
 
@@ -77,4 +77,7 @@ public class Taxi extends Vehicle<TaxiStatus> implements Drivable<Member>{
         return destination;
     }
 
+    public Integer getDistance() {
+        return distance;
+    }
 }

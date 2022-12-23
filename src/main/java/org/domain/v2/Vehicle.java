@@ -1,12 +1,12 @@
 package org.domain.v2;
 
-public abstract class Vehicle<T> implements Drivable, StateConverter{
-    String id;
-    Integer fuel;
-    Integer speed;
-    Integer maxPassenger;
-    Integer passenger;
-    T status;
+public abstract class Vehicle<Status> implements StateConverter {
+    protected Long id;
+    protected Integer fuel;
+    protected Integer speed;
+    protected Integer passenger;
+    protected Integer basicCharge;
+    protected Status status;
 
     public Vehicle() {
         this.fuel = 100;

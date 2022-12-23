@@ -6,8 +6,7 @@ import org.domain.v2.Vehicle;
 import org.domain.v2.valid.CapacityValidator;
 import org.domain.v2.valid.Validator;
 
-import static org.domain.v2.taxi.TaxiStatus.NORMAL;
-import static org.domain.v2.taxi.TaxiStatus.RUNNING;
+import static org.domain.v2.taxi.TaxiStatus.*;
 
 public class Taxi extends Vehicle<TaxiStatus> implements Drivable<Member>{
 
@@ -60,7 +59,13 @@ public class Taxi extends Vehicle<TaxiStatus> implements Drivable<Member>{
         this.wallet += charge;
         System.out.println("MESSAGE : [목적지 " + this.destination + "에 도착하였습니다.]");
         System.out.println("MESSAGE : [요금은 " + charge + "원 입니다.]");
-        this.status = NORMAL;
+
+        if (this.getFuel() < 10) {
+            this.status = UNAVAILABLE;
+            System.out.println("MESSAGE : [주유가 필요합니다.]");
+        } else {
+            this.status = NORMAL;
+        }
     }
 
     private Integer calculateCharge() {

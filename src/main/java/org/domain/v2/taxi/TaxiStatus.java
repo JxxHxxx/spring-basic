@@ -1,4 +1,4 @@
-package org.domain.v2.status;
+package org.domain.v2.taxi;
 
 public enum TaxiStatus {
 

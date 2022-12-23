@@ -12,7 +12,7 @@ public class CapacityValidator implements Validator{
     }
 
     @Override
-    public boolean execute(Vehicle vehicle, Integer value) {
-        return vehicle.getPassenger() > value;
+    public boolean execute(Vehicle vehicle, Integer limit) {
+        return vehicle.getPassenger() > limit;
     }
 }

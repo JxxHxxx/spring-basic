@@ -6,7 +6,7 @@ import static org.domain.BusStatus.RUNNING;
 public class Bus extends Vehicle{
 
     private static Long sequence = 0L;
-    private static final Integer maxPassenger = 30;
+    private final Integer maxPassenger = 30;
     private BusStatus status;
 
     public Bus() {
@@ -17,7 +17,7 @@ public class Bus extends Vehicle{
     }
 
     public void run() {
-        if (isNotRunnable("MESSAGE : [주유가 필요합니다]")) {
+        if (isNotRunnable("MESSAGE : [주유가 필요합니다.]")) {
             quit();
             return;
         }
@@ -31,18 +31,19 @@ public class Bus extends Vehicle{
         }
         return false;
     }
-    public void ride(Integer passenger) {
+    public Integer ride(Integer passenger) {
         if (isNotRunning()) {
             System.out.println("MESSAGE : [운행중인 버스가 아닙니다.]");
-            return;
+            return null;
         }
 
         int tmpPassenger = this.passenger + passenger;
         if (tmpPassenger >= maxPassenger) {
             System.out.println("MESSAGE : [최대 승객 수를 초과했습니다.]");
-            return;
+            return null;
         }
         this.passenger = tmpPassenger;
+        return passenger;
     }
 
     private boolean isNotRunning() {
@@ -73,4 +74,7 @@ public class Bus extends Vehicle{
         return status;
     }
 
+    public Integer getMaxPassenger() {
+        return maxPassenger;
+    }
 }

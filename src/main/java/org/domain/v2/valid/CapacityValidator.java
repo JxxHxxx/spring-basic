@@ -1,6 +1,8 @@
 package org.domain.v2.valid;
 
 import org.domain.v2.Vehicle;
+import org.domain.v2.bus.Bus;
+import org.domain.v2.taxi.Taxi;
 
 public class CapacityValidator implements Validator{
 
@@ -12,7 +14,16 @@ public class CapacityValidator implements Validator{
     }
 
     @Override
-    public boolean execute(Vehicle vehicle, Integer capacity) {
-        return vehicle.getPassenger() > capacity;
+    public boolean execute(Vehicle vehicle) {
+
+        if (vehicle instanceof Bus) {
+            return vehicle.getPassenger() > Bus.maxPassenger;
+        }
+
+        if (vehicle instanceof Taxi) {
+            return vehicle.getPassenger() > Taxi.maxPassenger;
+        }
+
+        return false;
     }
 }

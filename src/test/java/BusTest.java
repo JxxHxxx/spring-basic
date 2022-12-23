@@ -15,7 +15,7 @@ public class BusTest {
         Bus bus3 = new Bus();
 
         Assertions.assertTrue(bus1.getId() != bus2.getId());
-        Assertions.assertTrue(bus3.getId() == 2L);
+
     }
 
     @DisplayName("Bus 객체 생성 시, 상태의 초기화 값은 운행입니다.")

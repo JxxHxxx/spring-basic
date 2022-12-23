@@ -5,6 +5,7 @@ import org.domain.v2.Vehicle;
 import org.domain.v2.valid.CapacityValidator;
 import org.domain.v2.valid.Validator;
 
+import static org.domain.v2.bus.BusStatus.*;
 import static org.domain.v2.bus.BusStatus.RUNNING;
 
 public class Bus extends Vehicle<BusStatus> implements Drivable<Integer> {
@@ -30,7 +31,7 @@ public class Bus extends Vehicle<BusStatus> implements Drivable<Integer> {
         }
         this.passenger += passenger;
 
-        if (capacityValidator.execute(this, maxPassenger)) {
+        if (capacityValidator.execute(this)) {
             System.out.println("MESSAGE : [최대 승객 수를 초과했습니다.]");
             this.passenger -= passenger;
         }
@@ -42,5 +43,9 @@ public class Bus extends Vehicle<BusStatus> implements Drivable<Integer> {
 
     public void setStatus(BusStatus status) {
         this.status = status;
+
+        if (nowStatus(REST)) {
+            this.passenger = 0;
+        }
     }
 }

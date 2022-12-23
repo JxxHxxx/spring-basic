@@ -1,4 +1,4 @@
-package org.domain.v2.taxi;
+package org.domain.v2;
 
 public class Member {
     private Long id;

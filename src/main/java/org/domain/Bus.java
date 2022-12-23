@@ -1,5 +1,6 @@
 package org.domain;
 
+import static org.domain.BusStatus.REST;
 import static org.domain.BusStatus.RUNNING;
 
 public class Bus extends Vehicle{

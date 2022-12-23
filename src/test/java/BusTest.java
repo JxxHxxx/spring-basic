@@ -34,6 +34,22 @@ public class BusTest {
         Assertions.assertEquals(bus.getPassenger(), 0);
         Assertions.assertEquals(bus.getSpeed(), 0);
         Assertions.assertEquals(bus.getGasAmount(), 100);
+    }
 
+    @DisplayName("주유량 10 미만일 경우 운행 상태는 REST 입니다.")
+    @Test
+    void ifGasLowerThan10() {
+        Bus bus = new Bus();
+        bus.setGasAmount(5);
+        bus.run();
+        Assertions.assertTrue(bus.getStatus().equals(REST));
+    }
+
+    @DisplayName("주유량 10 이상일 경우 운행 상태는 RUNNING 입니다.")
+    @Test
+    void ifGasOver10() {
+        Bus bus = new Bus();
+        bus.run();
+        Assertions.assertTrue(bus.getStatus().equals(RUNNING));
     }
 }

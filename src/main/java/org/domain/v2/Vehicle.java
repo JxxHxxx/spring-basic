@@ -1,6 +1,6 @@
 package org.domain.v2;
 
-public abstract class Vehicle<Status> implements StateConverter {
+public abstract class Vehicle<Status> {
     protected Long id;
     protected Integer fuel;
     protected Integer speed;

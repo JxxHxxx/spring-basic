@@ -62,7 +62,6 @@ public class Taxi extends Vehicle<TaxiStatus> implements Drivable<Member>{
 
         if (this.getFuel() < 10) {
             this.status = UNAVAILABLE;
-            System.out.println("MESSAGE : [주유가 필요합니다.]");
         } else {
             this.status = NORMAL;
         }

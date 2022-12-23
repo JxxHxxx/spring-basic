@@ -12,7 +12,6 @@ public class BusTest {
     void uniqueId() {
         Bus bus1 = new Bus();
         Bus bus2 = new Bus();
-        Bus bus3 = new Bus();
 
         Assertions.assertTrue(bus1.getId() != bus2.getId());
 

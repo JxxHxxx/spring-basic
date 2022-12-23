@@ -45,6 +45,11 @@ public abstract class Vehicle<Status> {
     }
 
     public void changeFuel(Integer amount) {
-        this.fuel += amount;
+        int tmpFuel = this.fuel + amount;
+        if (tmpFuel < 0) {
+            System.out.println("MESSAGE : [주유량은 0 보다 작을 수 없습니다.]");
+            return;
+        }
+        this.fuel = tmpFuel;
     }
 }

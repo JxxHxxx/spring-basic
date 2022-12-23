@@ -57,7 +57,17 @@ public class Bus extends Vehicle{
         this.status = REST;
     }
 
-
+    @Override
+    public boolean speedValidator() {
+        if (isNotRunning()) {
+            System.out.println("MESSAGE : [운행중인 버스가 아닙니다.]");
+             return true;
+        }
+        if (isNotRunnable("MESSAGE : [주유량을 확인해주세요.]")) {
+            return true;
+        }
+        return false;
+    }
 
     public BusStatus getStatus() {
         return status;

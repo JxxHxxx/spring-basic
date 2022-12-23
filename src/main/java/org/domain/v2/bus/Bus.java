@@ -20,6 +20,17 @@ public class Bus extends Vehicle<BusStatus> implements Drivable<Integer> {
 
     @Override
     public void drive(Integer passenger) {
+        if (!nowStatus(RUNNING)) {
+            System.out.println("MESSAGE : [운행중인 버스가 아닙니다.]");
+            return;
+        }
+
+        int tmpPassenger = this.passenger + passenger;
+        if (tmpPassenger >= maxPassenger) {
+            System.out.println("MESSAGE : [최대 승객 수를 초과했습니다.]");
+            return;
+        }
+        this.passenger = tmpPassenger;
 
     }
 }

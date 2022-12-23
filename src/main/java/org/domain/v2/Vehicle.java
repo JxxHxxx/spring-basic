@@ -35,4 +35,16 @@ public abstract class Vehicle<Status> {
     public Integer getWallet() {
         return wallet;
     }
+
+    public Integer getFuel() {
+        return fuel;
+    }
+
+    public Integer getSpeed() {
+        return speed;
+    }
+
+    public void changeFuel(Integer amount) {
+        this.fuel += amount;
+    }
 }

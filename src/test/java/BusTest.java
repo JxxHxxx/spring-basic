@@ -79,4 +79,14 @@ public class BusTest {
         bus.ride(25);
         Assertions.assertEquals(bus.getPassenger(), 0);
     }
+
+    @DisplayName("주유량이 10미만인 버스는 상태가 차고지행입니다.")
+    @Test
+    void ifGasLessThan10() {
+        Bus bus = new Bus();
+        bus.setGasAmount(5);
+        bus.run();
+
+        Assertions.assertEquals(bus.getStatus(), REST);
+    }
 }

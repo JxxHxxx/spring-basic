@@ -89,4 +89,13 @@ public class BusTest {
 
         Assertions.assertEquals(bus.getStatus(), REST);
     }
+
+    @DisplayName("주유량은 0미만으로 만들 경우 주유를 하더라도 변화가 일어나지 않습니다.")
+    @Test
+    void isGasLessThanZero() {
+        Bus bus = new Bus();
+        bus.setGasAmount(-200);
+
+        Assertions.assertEquals(bus.getGasAmount(), 100);
+    }
 }

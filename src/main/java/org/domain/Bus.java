@@ -31,6 +31,27 @@ public class Bus extends Vehicle{
         }
         return false;
     }
+    public void ride(Integer passenger) {
+        if (isNotRunning()) {
+            System.out.println("MESSAGE : [운행중인 버스가 아닙니다.]");
+            return;
+        }
+
+        int tmpPassenger = this.passenger + passenger;
+        if (tmpPassenger >= maxPassenger) {
+            System.out.println("MESSAGE : [최대 승객 수를 초과했습니다.]");
+            return;
+        }
+        this.passenger = tmpPassenger;
+    }
+
+    private boolean isNotRunning() {
+        return !this.status.equals(RUNNING);
+    }
+
+    public void setStatus(BusStatus status) {
+        this.status = status;
+    }
 
     private void quit() {
         this.status = REST;

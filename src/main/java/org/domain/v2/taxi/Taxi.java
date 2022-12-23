@@ -57,6 +57,30 @@ public class Taxi extends Vehicle<TaxiStatus> implements Drivable<Member>{
 
     }
 
+    public void pay() {
+        if (!nowStatus(RUNNING)) {
+            System.out.println("MESSAGE : [탑승중인 손님이 존재하지 않아 결제가 불가능합니다.]");
+            return;
+        }
+        Integer charge = calculateCharge();
+        this.wallet += charge;
+        System.out.println("MESSAGE : [목적지 " + this.destination + "에 도착하였습니다.]");
+        System.out.println("MESSAGE : [요금은 " + charge + "원 입니다.]");
+        this.status = NORMAL;
+    }
 
+    private Integer calculateCharge() {
+        if (Taxi.basicDistance >= this.distance) {
+            return basicCharge;
+        }
+        else {
+            int calDistance = this.distance - Taxi.basicDistance;
+            return calDistance * ratePerDistance;
+        }
+    }
+
+    public String getDestination() {
+        return destination;
+    }
 
 }

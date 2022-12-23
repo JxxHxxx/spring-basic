@@ -1,7 +1,7 @@
 package org.domain.v2;
 
-public interface Drivable {
+public interface Drivable<T> {
 
-    void ride(Vehicle vehicle);
-    void drive(Vehicle vehicle);
+    void drive(T t);
+    void run();
 }

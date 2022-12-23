@@ -15,4 +15,24 @@ public abstract class Vehicle<Status> {
         this.passenger = 0;
         this.wallet = 0;
     }
+
+    public Integer getPassenger() {
+        return passenger;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public Integer getBasicCharge() {
+        return basicCharge;
+    }
+
+    public Integer getWallet() {
+        return wallet;
+    }
 }

@@ -35,7 +35,7 @@ public class Taxi extends Vehicle<TaxiStatus> implements Drivable<Member>{
 
         this.passenger = member.getNumber();
 
-        if (capacityValidator.execute(this, 4)) {
+        if (capacityValidator.execute(this)) {
             System.out.println("MESSAGE : [수용 인원이 초과되어 승객을 태울 수 없습니다.]");
             this.passenger = 0;
             return;

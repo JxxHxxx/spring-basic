@@ -12,7 +12,7 @@ public class Bus extends Vehicle<BusStatus> implements Drivable<Integer> {
     private static Long sequence = 0L;
     public static final Integer maxPassenger = 30;
 
-    private static final Validator validator = CapacityValidator.getInstance();
+    private static final Validator capacityValidator = CapacityValidator.getInstance();
 
     public Bus() {
         super();
@@ -30,7 +30,7 @@ public class Bus extends Vehicle<BusStatus> implements Drivable<Integer> {
         }
         this.passenger += passenger;
 
-        if (validator.execute(this, maxPassenger)) {
+        if (capacityValidator.execute(this, maxPassenger)) {
             System.out.println("MESSAGE : [최대 승객 수를 초과했습니다.]");
             this.passenger -= passenger;
         }

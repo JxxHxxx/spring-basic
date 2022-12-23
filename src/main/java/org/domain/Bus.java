@@ -15,6 +15,26 @@ public class Bus extends Vehicle{
         this.charge = 1000;
     }
 
+    public void run() {
+        if (isNotRunnable("MESSAGE : [주유가 필요합니다]")) {
+            quit();
+            return;
+        }
+        this.status = RUNNING;
+    }
+
+    private boolean isNotRunnable(String message) {
+        if (this.gasAmount < 10) {
+            System.out.println(message);
+            return true;
+        }
+        return false;
+    }
+
+    private void quit() {
+        this.status = REST;
+    }
+
 
 
     public BusStatus getStatus() {

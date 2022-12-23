@@ -51,12 +51,6 @@ public class Taxi extends Vehicle<TaxiStatus> implements Drivable<Member>{
         return this.status.equals(status);
     }
 
-
-    @Override
-    public void run() {
-
-    }
-
     public void pay() {
         if (!nowStatus(RUNNING)) {
             System.out.println("MESSAGE : [탑승중인 손님이 존재하지 않아 결제가 불가능합니다.]");

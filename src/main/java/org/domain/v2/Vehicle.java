@@ -50,6 +50,9 @@ public abstract class Vehicle<Status> {
             System.out.println("MESSAGE : [주유량은 0 보다 작을 수 없습니다.]");
             return;
         }
+        if (tmpFuel < 10) {
+            System.out.println("MESSAGE : [주유가 필요합니다.]");
+        }
         this.fuel = tmpFuel;
     }
 }

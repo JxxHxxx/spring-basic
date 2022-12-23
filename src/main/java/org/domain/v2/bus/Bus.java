@@ -33,4 +33,12 @@ public class Bus extends Vehicle<BusStatus> implements Drivable<Integer> {
         this.passenger = tmpPassenger;
 
     }
+
+    private boolean nowStatus(BusStatus status) {
+        return this.status.equals(status);
+    }
+
+    public void setStatus(BusStatus status) {
+        this.status = status;
+    }
 }

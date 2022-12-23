@@ -1,7 +1,7 @@
-package org.domain;
+package org.domain.v1;
 
-import static org.domain.BusStatus.REST;
-import static org.domain.BusStatus.RUNNING;
+import static org.domain.v1.BusStatus.REST;
+import static org.domain.v1.BusStatus.RUNNING;
 
 public class Bus extends Vehicle{
 

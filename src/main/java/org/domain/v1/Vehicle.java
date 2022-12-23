@@ -1,4 +1,4 @@
-package org.domain;
+package org.domain.v1;
 
 public abstract class Vehicle {
     Long id;

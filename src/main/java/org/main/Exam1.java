@@ -1,8 +1,8 @@
 package org.main;
 
-import org.domain.Bus;
+import org.domain.v1.Bus;
 
-import static org.domain.BusStatus.*;
+import static org.domain.v1.BusStatus.*;
 
 public class Exam1 {
     public static void main(String[] args) {

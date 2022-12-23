@@ -1,9 +1,9 @@
-import org.domain.Bus;
+import org.domain.v1.Bus;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static org.domain.BusStatus.*;
+import static org.domain.v1.BusStatus.*;
 
 public class BusTest {
 

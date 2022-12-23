@@ -98,4 +98,14 @@ public class BusTest {
 
         Assertions.assertEquals(bus.getGasAmount(), 100);
     }
+    @DisplayName("주유 결과가 0이상이면 주유량을 반영합니다.")
+    @Test
+    void ifGasOverZero() {
+        Bus bus = new Bus();
+        Assertions.assertEquals(100, bus.getGasAmount());
+        bus.setGasAmount(-80);
+
+        Assertions.assertEquals(20, bus.getGasAmount());
+    }
 }
+

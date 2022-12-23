@@ -31,4 +31,13 @@ public abstract class Vehicle {
     public Integer getCharge() {
         return charge;
     }
+
+    public void setGasAmount(Integer gasAmount) {
+        int tmpGasAmount = this.gasAmount + gasAmount;
+        if (tmpGasAmount < 0) {
+            System.out.println("MESSAGE : [주유량은 0 보다 작을 수 없습니다.]");
+            return;
+        }
+        this.gasAmount = tmpGasAmount;
+    }
 }

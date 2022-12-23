@@ -16,4 +16,9 @@ public class Bus extends Vehicle{
     }
 
 
+
+    public BusStatus getStatus() {
+        return status;
+    }
+
 }
